@@ -8,3 +8,5 @@
 <img width="3072" height="3072" alt="Me" src="https://github.com/user-attachments/assets/3a9bf824-e2a9-4ffa-9564-a5beee0d7962" />
 <img width="3072" height="3072" alt="Tak berjudul335_20260909100409 (1)" src="https://github.com/user-attachments/assets/71677829-ec31-4506-840a-8bab8b3a8d80" />
 <img width="1006" height="881" alt="IMG_20260923_065501" src="https://github.com/user-attachments/assets/e4bd4e47-0c7a-4452-b082-318523cc0b3a" />
+[lizqwhydvach_-_so_bitter_slowed_(mp3.pm).mp3](https://github.com/user-attachments/files/32548218/lizqwhydvach_-_so_bitter_slowed_.mp3.pm.mp3)
+<img width="3072" height="3072" alt="Tak berjudul352_20260922173556 (1)" src="https://github.com/user-attachments/assets/a3dd1b96-5847-429d-8e7f-079e2f118609" />
