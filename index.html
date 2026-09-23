@@ -314,6 +314,34 @@
             </div>
         </div>
 
+        <!-- BGM / Audio Player dengan Animasi Piringan Hitam -->
+<div class="tech-border p-4 mt-6 flex flex-col sm:flex-row items-center gap-6 group">
+    
+    <!-- Animasi Piringan Hitam (Berputar) -->
+    <div class="relative w-20 h-20 shrink-0 flex items-center justify-center rounded-full bg-[#0a0a0a] border border-gray-700 animate-[spin_4s_linear_infinite] shadow-[0_0_15px_rgba(200,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(200,0,0,0.6)] transition-all duration-500">
+        <!-- Garis-garis Vinyl -->
+        <div class="absolute inset-1 rounded-full border border-gray-800 bg-black"></div>
+        <div class="absolute inset-3 rounded-full border border-gray-700"></div>
+        <!-- Label Tengah (Memakai ikon baru) -->
+        <img src="https://github.com/user-attachments/assets/a3dd1b96-5847-429d-8e7f-079e2f118609" class="w-8 h-8 rounded-full object-cover z-10 opacity-80" alt="vinyl center">
+        <!-- Lubang Poros Tengah -->
+        <div class="absolute w-2 h-2 bg-gray-300 rounded-full z-20"></div>
+    </div>
+
+    <!-- Pemutar Audio -->
+    <div class="flex-grow w-full">
+        <div class="flex items-center justify-between mb-2 border-b border-blood/30 pb-2">
+            <h3 class="text-blood font-bold tracking-widest text-xs uppercase">SYS.AUDIO // NOW PLAYING</h3>
+            <svg class="w-4 h-4 text-blood animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+        </div>
+        
+        <audio controls loop class="w-full h-8 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all custom-audio">
+            <source src="https://github.com/user-attachments/files/32548218/lizqwhydvach_-_so_bitter_slowed_.mp3.pm.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</div>
+
         <!-- Works / Archive Section -->
         <section id="archive" class="pt-12">
             <div class="flex items-end justify-between mb-12 border-b border-gray-800 pb-4">
