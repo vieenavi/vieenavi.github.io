@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>NANA | SYAIR LAGU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'blood': '#c80000', 'void': '#0a0a0a', 'ash': '#888888', }, fontFamily: { 'cinzel': ['"Cinzel"', 'serif'], 'mono': ['"Space Mono"', 'monospace'], } } } }
+    </script>
+    <style>
+        body { background-color: #050505; color: #e5e5e5; cursor: crosshair; }
+        .tech-border { position: relative; border: 1px solid #333; background: rgba(10, 10, 10, 0.8); }
+        .tech-border::before, .tech-border::after { content: ''; position: absolute; width: 10px; height: 10px; }
+        .tech-border::before { top: -1px; left: -1px; border-top: 2px solid #c80000; border-left: 2px solid #c80000; }
+        .tech-border::after { bottom: -1px; right: -1px; border-bottom: 2px solid #c80000; border-right: 2px solid #c80000; }
+        
+        /* Audio Player Animations */
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .spin-vinyl { animation: spin 4s linear infinite; animation-play-state: paused; }
+        .playing .spin-vinyl { animation-play-state: running; }
+        
+        /* Lyrics Scrolling */
+        .lyrics-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            /* Efek fade out di atas dan bawah lirik */
+            mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+        }
+        .lyrics-scroll {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transition: transform 0.5s ease-out;
+        }
+        .lyric-line {
+            padding: 10px 0;
+            color: #444;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        .lyric-line.active {
+            color: #c80000;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(200,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="font-mono antialiased text-center">
+    <nav class="flex justify-center flex-wrap gap-4 sm:gap-8 py-6 border-b border-blood/30 text-xs tracking-widest uppercase font-mono z-40 relative bg-void/80 backdrop-blur-sm">
+        <a href="index.html" class="hover:text-white transition-colors">Beranda</a>
+        <a href="tentang-saya.html" class="hover:text-white transition-colors">Tentang Saya</a>
+        <a href="sekolahku.html" class="hover:text-white transition-colors">Sekolahku</a>
+        <a href="syair-lagu.html" class="text-blood font-bold border-b border-blood pb-1">Syair Lagu</a>
+    </nav>
+
+    <main class="max-w-2xl mx-auto py-16 px-4">
+        <div class="tech-border p-8 relative overflow-hidden" id="audioPlayer">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blood/5 rounded-full blur-3xl z-0 pointer-events-none"></div>
+            
+            <h1 class="font-cinzel text-3xl text-white mb-2 relative z-10">THE SOUND OF VOID</h1>
+            <p class="text-blood text-xs tracking-[0.3em] uppercase mb-8 relative z-10">Audio Archive // My Chemical Romance</p>
+            
+            <!-- Vinyl & Player Controls -->
+            <div class="flex flex-col items-center justify-center mb-8 relative z-10">
+                <!-- Vinyl -->
+                <div class="relative w-32 h-32 mb-6 flex items-center justify-center rounded-full bg-[#0a0a0a] border border-gray-700 spin-vinyl shadow-[0_0_20px_rgba(200,0,0,0.3)] group-hover:shadow-[0_0_30px_rgba(200,0,0,0.6)] transition-shadow">
+                    <div class="absolute inset-2 rounded-full border border-gray-800 bg-black"></div>
+                    <div class="absolute inset-4 rounded-full border border-gray-700"></div>
+                    <!-- Kamu bisa ganti gambar tengah piringan hitam di bawah ini -->
+                    <img src="https://placehold.co/100/0a0a0a/c80000?text=UGLY" class="w-12 h-12 rounded-full object-cover z-10 opacity-80" alt="vinyl center">
+                    <div class="absolute w-3 h-3 bg-gray-300 rounded-full z-20"></div>
+                </div>
+
+                <!-- Custom Audio Controls (Ganti Lagu.mp4 jadi file musik/videomu) -->
+                <audio id="songAudio" src="Lagu.mp4"></audio>
+                
+                <div class="flex items-center gap-4 text-ash w-full max-w-sm mb-6">
+                    <span id="currentTime" class="text-xs">0:00</span>
+                    <input type="range" id="progressBar" value="0" max="100" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blood outline-none">
+                    <span id="durationTime" class="text-xs">0:00</span>
+                </div>
+                
+                <button id="playBtn" class="border border-blood text-blood px-8 py-2 text-xs uppercase tracking-widest font-bold hover:bg-blood hover:text-void transition-colors">
+                    PLAY TRACK //
+                </button>
+            </div>
+            
+            <!-- Synchronized Scrolling Lyrics -->
+            <div class="mt-8 border-t border-gray-800 pt-8 relative z-10">
+                <div class="text-xs text-ash tracking-widest uppercase mb-4 text-left border-l-2 border-blood pl-2">Vocal Output: The World is Ugly</div>
+                <div class="lyrics-container font-cinzel italic">
+                    <div class="lyrics-scroll" id="lyricsBox">
+                        <!-- Lyrics will be injected here by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Playlist Links (Lagu Fav Lainnya) -->
+        <div class="mt-12 text-left tech-border p-6 relative z-10">
+            <h3 class="font-cinzel text-xl text-white mb-4 border-l-2 border-blood pl-2 uppercase">Other Frequencies // Playlist</h3>
+            <ul class="text-xs text-ash space-y-4 font-mono tracking-wider">
+                <li class="hover:text-blood transition-colors cursor-crosshair flex justify-between items-center group">
+                    <span>> Radiohead - Creep</span> 
+                    <span class="text-[0.6rem] border border-gray-700 px-2 py-1 group-hover:border-blood">[ENCRYPTED]</span>
+                </li>
+                <li class="hover:text-blood transition-colors cursor-crosshair flex justify-between items-center group">
+                    <span>> Deftones - Cherry Waves</span> 
+                    <span class="text-[0.6rem] border border-gray-700 px-2 py-1 group-hover:border-blood">[ENCRYPTED]</span>
+                </li>
+                <li class="hover:text-blood transition-colors cursor-crosshair flex justify-between items-center group">
+                    <span>> Arctic Monkeys - 505</span> 
+                    <span class="text-[0.6rem] border border-gray-700 px-2 py-1 group-hover:border-blood">[ENCRYPTED]</span>
+                </li>
+                <!-- Tambahkan lagu fav kamu yang lain di atas baris ini -->
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        const audio = document.getElementById('songAudio');
+        const playBtn = document.getElementById('playBtn');
+        const playerContainer = document.getElementById('audioPlayer');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationTimeDisplay = document.getElementById('durationTime');
+        const lyricsBox = document.getElementById('lyricsBox');
+
+        // TAMBAHKAN LIRIK LENGKAPMU DI SINI
+        // Format: { time: detik_ke_berapa, text: "Liriknya" }
+        const lyricsData = [
+            { time: 0, text: "♫ (Instrumental Intro) ♫" },
+            { time: 82, text: "'Cause I wanted you to know" },
+            { time: 88, text: "That the world is ugly" },
+            { time: 94, text: "But you're beautiful to me" },
+            { time: 101, text: "Well, are you thinking of me now" },
+            { time: 108, text: "[Cari lirik lengkapnya di Google...]" },
+            { time: 110, text: "[...Lalu ganti teks dan waktunya di file HTML ini]" }
+        ];
+
+        // Generate HTML untuk lirik
+        lyricsData.forEach((line, index) => {
+            const div = document.createElement('div');
+            div.className = 'lyric-line';
+            div.id = `line-${index}`;
+            div.innerText = line.text;
+            lyricsBox.appendChild(div);
+        });
+
+        // Logika Play/Pause
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerText = "PAUSE TRACK //";
+                playerContainer.classList.add('playing');
+            } else {
+                audio.pause();
+                playBtn.innerText = "PLAY TRACK //";
+                playerContainer.classList.remove('playing');
+            }
+        });
+
+        // Load metadata (durasi lagu)
+        audio.addEventListener('loadedmetadata', () => {
+            progressBar.max = audio.duration;
+            durationTimeDisplay.innerText = formatTime(audio.duration);
+        });
+
+        // Update Progress Bar & Lirik Berjalan
+        audio.addEventListener('timeupdate', () => {
+            progressBar.value = audio.currentTime;
+            currentTimeDisplay.innerText = formatTime(audio.currentTime);
+
+            let activeIndex = -1;
+            for (let i = 0; i < lyricsData.length; i++) {
+                if (audio.currentTime >= lyricsData[i].time) {
+                    activeIndex = i;
+                } else {
+                    break;
+                }
+            }
+
+            if (activeIndex !== -1) {
+                // Highlight lirik aktif
+                document.querySelectorAll('.lyric-line').forEach(el => el.classList.remove('active'));
+                const activeElement = document.getElementById(`line-${activeIndex}`);
+                if(activeElement) activeElement.classList.add('active');
+
+                // Auto-scroll lirik agar yang aktif selalu di tengah
+                const lineHeight = activeElement.offsetHeight;
+                // Offset dihitung agar elemen aktif berada di tengah kontainer
+                const offset = activeElement.offsetTop - (100 - lineHeight/2); 
+                lyricsBox.style.transform = `translateY(-${offset}px)`;
+            }
+        });
+
+        // Fitur Seek (geser slider maju/mundur)
+        progressBar.addEventListener('input', () => {
+            audio.currentTime = progressBar.value;
+        });
+
+        // Helper format waktu (menit:detik)
+        function formatTime(seconds) {
+            if(isNaN(seconds)) return "0:00";
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        }
+    </script>
+</body>
+</html>
