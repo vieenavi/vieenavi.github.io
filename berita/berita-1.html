@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>NANA | BERITA 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'blood': '#c80000', 'void': '#0a0a0a', 'ash': '#888888', }, fontFamily: { 'cinzel': ['"Cinzel"', 'serif'], 'mono': ['"Space Mono"', 'monospace'], } } } }
+    </script>
+    <style>
+        body { background-color: #050505; color: #e5e5e5; cursor: crosshair; }
+        .tech-border { position: relative; border: 1px solid #333; background: rgba(10, 10, 10, 0.8); }
+        .tech-border::before, .tech-border::after { content: ''; position: absolute; width: 10px; height: 10px; }
+        .tech-border::before { top: -1px; left: -1px; border-top: 2px solid #c80000; border-left: 2px solid #c80000; }
+        .tech-border::after { bottom: -1px; right: -1px; border-bottom: 2px solid #c80000; border-right: 2px solid #c80000; }
+        .grunge-img { filter: contrast(1.1) grayscale(0.2); transition: all 0.4s ease; }
+        .grunge-img:hover { filter: contrast(1.0) grayscale(0); }
+    </style>
+</head>
+<body class="font-mono antialiased">
+    <nav class="flex justify-center flex-wrap gap-4 sm:gap-8 py-6 border-b border-blood/30 text-xs tracking-widest uppercase font-mono z-40 relative bg-void/80 backdrop-blur-sm">
+        <a href="../index.html" class="hover:text-white transition-colors">Beranda</a>
+        <a href="../tentang-saya.html" class="hover:text-white transition-colors">Tentang Saya</a>
+        <a href="../sekolahku.html" class="hover:text-white transition-colors">Sekolahku</a>
+        <a href="../syair-lagu.html" class="hover:text-white transition-colors">Syair Lagu</a>
+    </nav>
+
+    <main class="max-w-3xl mx-auto py-16 px-4">
+        <a href="../index.html" class="text-blood text-xs hover:text-white mb-6 inline-block"><< KEMBALI KE BERANDA</a>
+        
+        <article class="tech-border p-8">
+            <div class="border-b border-gray-800 pb-4 mb-6">
+                <h1 class="font-cinzel text-3xl text-white mb-2">DISTORSI REALITA: 1 USD SETARA 1 RUPIAH</h1>
+                <p class="text-blood text-[0.7rem] tracking-widest">Kamis, 24 September 2026 // LOG: 001</p>
+            </div>
+            
+            <!-- Tempat Gambar Berita -->
+            <div class="w-full aspect-video border border-gray-800 mb-8 overflow-hidden bg-void relative group">
+                <!-- GANTI LINK DI BAWAH INI DENGAN GAMBAR KAMU -->
+                <img src="https://placehold.co/800x450/0a0a0a/c80000?text=UANG+1+RUPIAH" alt="Gambar Ilustrasi Dolar ke Rupiah" class="w-full h-full object-cover grunge-img">
+                <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-1 border border-blood/50 text-[0.6rem] text-blood tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+                    VISUAL DATA // 01
+                </div>
+            </div>
+
+            <div class="text-sm text-gray-300 leading-relaxed space-y-4">
+                <p>Sebuah anomali luar biasa tercatat di layar bursa saham global pagi ini. Secara tiba-tiba, angka tukar Dolar Amerika Serikat terhadap Rupiah anjlok gila-gilaan hingga menyentuh rasio absurd: 1:1.</p>
+                <p>Ini bukan sekadar deflasi atau mukjizat ekonomi. Ini adalah "mimpi basah" para ekonom dan rakyat kelas pekerja yang tiba-tiba merasa memiliki daya beli setara konglomerat Wall Street. Semua utang negara seolah lenyap, harga barang impor merosot tajam, dan <em>pc gaming</em> idaman tiba-tiba seharga nasi bungkus.</p>
+                <p>Namun, dalam arsip simulasi ini, kita tahu kebenaran yang pahit: ini hanyalah sebuah <em>glitch</em> di dalam sistem. Sebuah distorsi realita di mana harapan dan keputusasaan melebur menjadi baris kode yang rusak. Saat kita terbangun esok hari, layar monitor itu akan kembali berkedip merah, dan angka-angka kapitalisme akan kembali mencekik.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
