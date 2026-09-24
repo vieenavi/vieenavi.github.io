@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NANA | BERANDA</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blood': '#c80000',
+                        'void': '#0a0a0a',
+                        'ash': '#888888',
+                    },
+                    fontFamily: {
+                        'cinzel': ['"Cinzel"', 'serif'],
+                        'mono': ['"Space Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #050505; color: #e5e5e5; overflow-x: hidden; cursor: crosshair; }
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;
+            z-index: 50; opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .tech-border { position: relative; border: 1px solid #333; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(4px); }
+        .tech-border::before, .tech-border::after { content: ''; position: absolute; width: 10px; height: 10px; }
+        .tech-border::before { top: -1px; left: -1px; border-top: 2px solid #c80000; border-left: 2px solid #c80000; }
+        .tech-border::after { bottom: -1px; right: -1px; border-bottom: 2px solid #c80000; border-right: 2px solid #c80000; }
+        
+        /* Character Layers Container */
+        .char-container { position: relative; width: 350px; height: 350px; margin: 0 auto; }
+        .char-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+    </style>
+</head>
+<body class="font-mono antialiased">
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center flex-wrap gap-4 sm:gap-8 py-6 border-b border-blood/30 text-xs tracking-widest uppercase font-mono z-40 relative bg-void/80 backdrop-blur-sm">
+        <a href="index.html" class="text-blood font-bold border-b border-blood pb-1">Beranda</a>
+        <a href="tentang-saya.html" class="hover:text-white transition-colors">Tentang Saya</a>
+        <a href="sekolahku.html" class="hover:text-white transition-colors">Sekolahku</a>
+        <a href="syair-lagu.html" class="hover:text-white transition-colors">Syair Lagu</a>
+    </nav>
+
+    <main class="relative z-10 px-4 sm:px-8 md:px-16 py-12 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h1 class="font-cinzel text-5xl md:text-7xl font-black text-white mix-blend-difference mb-2">NANA'S <span class="text-blood drop-shadow-[0_0_15px_rgba(200,0,0,0.5)]">ARCHIVE</span></h1>
+            <p class="text-ash text-xs tracking-[0.3em] uppercase">Di mana ada kreativitas, di situ ada jalan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Left: Interactive Character -->
+            <div class="tech-border p-4 flex flex-col items-center justify-center">
+                <span class="text-blood text-[0.6rem] tracking-widest uppercase border-b border-blood/50 pb-1 mb-4 w-full text-left">SYS.ENTITY // MOUSE TRACKING ACTIVE</span>
+                
+                <div class="char-container" id="characterBox">
+                    <img src="Tak berjudul356_20260923190011.png" class="char-layer z-10" alt="Base">
+                    <img src="Tak berjudul356_20260923190027.png" class="char-layer z-20" alt="Eye Whites">
+                    <img src="Tak berjudul356_20260923190016.png" class="char-layer eye-pupil z-30" alt="Pupil 1">
+                    <img src="Tak berjudul356_20260923190021.png" class="char-layer eye-pupil z-30" alt="Pupil 2">
+                    <img src="Tak berjudul356_20260923190034.png" class="char-layer z-40" alt="Highlight 1">
+                    <img src="Tak berjudul356_20260923190043.png" class="char-layer z-40" alt="Highlight 2">
+                    <img src="Tak berjudul356_20260923190103.png" class="char-layer z-50" alt="Glasses">
+                    <img src="Tak berjudul356_20260923190049.png" class="char-layer z-50" alt="Hair">
+                    <img src="Tak berjudul356_20260923190056.png" class="char-layer z-[60]" alt="Hand">
+                </div>
+            </div>
+
+            <!-- Right: News Section -->
+            <div class="space-y-6">
+                <h2 class="font-cinzel text-2xl text-blood border-l-4 border-blood pl-4 uppercase">Arsip Log (Berita)</h2>
+                
+                <div class="tech-border p-6 hover:bg-white/5 transition-colors group">
+                    <div class="flex justify-between items-start mb-2 border-b border-gray-800 pb-2">
+                        <h3 class="text-white font-bold group-hover:text-blood transition-colors">Distorsi Realita: 1 USD = 1 IDR</h3>
+                        <span class="text-[0.6rem] text-ash tracking-widest">24 SEP 2026</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">Sebuah fenomena anomali yang hanya terjadi di alam bawah sadar. Apakah ini sekadar 'mimpi basah' para ekonom atau glitch di matriks keuangan global?</p>
+                    <a href="berita/berita-1.html" class="text-[0.7rem] text-blood border border-blood px-3 py-1 hover:bg-blood hover:text-black transition-colors uppercase font-bold tracking-wider inline-block">Akses Data //</a>
+                </div>
+
+                <div class="tech-border p-6 hover:bg-white/5 transition-colors group">
+                    <div class="flex justify-between items-start mb-2 border-b border-gray-800 pb-2">
+                        <h3 class="text-white font-bold group-hover:text-blood transition-colors">Sekuritisasi Identitas & HAM</h3>
+                        <span class="text-[0.6rem] text-ash tracking-widest">08 AGS 2026</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">Polemik Perpres 111/2025 yang memasukkan LGBT sebagai ancaman non-militer. Perlindungan kedaulatan atau bentuk opresi struktural terhadap HAM sipil?</p>
+                    <a href="berita/berita-2.html" class="text-[0.7rem] text-blood border border-blood px-3 py-1 hover:bg-blood hover:text-black transition-colors uppercase font-bold tracking-wider inline-block">Akses Data //</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for Mouse Tracking Eyes -->
+    <script>
+        const pupils = document.querySelectorAll('.eye-pupil');
+        const charBox = document.getElementById('characterBox');
+
+        document.addEventListener('mousemove', (e) => {
+            const rect = charBox.getBoundingClientRect();
+            const centerX = rect.left + (rect.width / 2);
+            const centerY = rect.top + (rect.height / 2);
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            const deltaX = mouseX - centerX;
+            const deltaY = mouseY - centerY;
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            
+            const maxMove = 5; 
+            let moveX = (deltaX / distance) * Math.min(distance * 0.02, maxMove);
+            let moveY = (deltaY / distance) * Math.min(distance * 0.02, maxMove);
+            
+            if (!isNaN(moveX) && !isNaN(moveY)) {
+                pupils.forEach(pupil => {
+                    pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
