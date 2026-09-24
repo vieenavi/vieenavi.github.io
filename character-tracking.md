@@ -1,3 +1,4 @@
+<img width="3072" height="3072" alt="Tak berjudul356_20260923190103" src="https://github.com/user-attachments/assets/2da8723a-db5b-47eb-bb6f-28c910517396" />
 <img width="3072" height="3072" alt="Tak berjudul356_20260923190056" src="https://github.com/user-attachments/assets/3fc14341-352a-4af1-aa86-842ac1fd60d5" />
 <img width="3072" height="3072" alt="Tak berjudul356_20260923190043" src="https://github.com/user-attachments/assets/e42c82b1-4583-4620-bc31-3743f38832f0" />
 <img width="3072" height="3072" alt="Tak berjudul356_20260923190049" src="https://github.com/user-attachments/assets/bcd058b5-7f7a-42af-94aa-22edec1dddc0" />
