@@ -15,17 +15,14 @@
         .tech-border::before { top: -1px; left: -1px; border-top: 2px solid #c80000; border-left: 2px solid #c80000; }
         .tech-border::after { bottom: -1px; right: -1px; border-bottom: 2px solid #c80000; border-right: 2px solid #c80000; }
         
-        
         @keyframes spin { 100% { transform: rotate(360deg); } }
         .spin-vinyl { animation: spin 4s linear infinite; animation-play-state: paused; }
         .playing .spin-vinyl { animation-play-state: running; }
-        
         
         .lyrics-container {
             height: 200px;
             overflow: hidden;
             position: relative;
-            
             mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
             -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
         }
@@ -64,43 +61,33 @@
             <h1 class="font-cinzel text-3xl text-white mb-2 relative z-10">THE SOUND OF VOID</h1>
             <p class="text-blood text-xs tracking-[0.3em] uppercase mb-8 relative z-10">Audio Archive // My Chemical Romance</p>
             
-            
+            <!-- Vinyl & Video Player -->
             <div class="flex flex-col items-center justify-center mb-8 relative z-10">
-                
-                <div class="relative w-32 h-32 mb-6 flex items-center justify-center rounded-full bg-[#0a0a0a] border border-gray-700 spin-vinyl shadow-[0_0_20px_rgba(200,0,0,0.3)] group-hover:shadow-[0_0_30px_rgba(200,0,0,0.6)] transition-shadow">
+                <div class="relative w-32 h-32 mb-6 flex items-center justify-center rounded-full bg-[#0a0a0a] border border-gray-700 spin-vinyl shadow-[0_0_20px_rgba(200,0,0,0.3)] transition-shadow">
                     <div class="absolute inset-2 rounded-full border border-gray-800 bg-black"></div>
                     <div class="absolute inset-4 rounded-full border border-gray-700"></div>
-                    
                     <img src="https://github.com/user-attachments/assets/b632f241-7d71-4314-9c5a-8e4e5e0c020b" class="w-12 h-12 rounded-full object-cover z-10 opacity-80" alt="vinyl center">
                     <div class="absolute w-3 h-3 bg-gray-300 rounded-full z-20"></div>
                 </div>
 
-                
-                <audio id="songAudio" src="Audio.mp4"></audio>
-                
-                <div class="flex items-center gap-4 text-ash w-full max-w-sm mb-6">
-                    <span id="currentTime" class="text-xs">0:00</span>
-                    <input type="range" id="progressBar" value="0" max="100" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blood outline-none">
-                    <span id="durationTime" class="text-xs">5:01</span>
+                <!-- Your preferred video tag format -->
+                <div class="w-full max-w-sm">
+                    <video id="songAudio" controls loop class="w-full h-14 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all object-cover rounded-none bg-transparent">
+                        <source src="Audio.mp4" type="video/mp4">
+                    </video>
                 </div>
-                
-                <button id="playBtn" class="border border-blood text-blood px-8 py-2 text-xs uppercase tracking-widest font-bold hover:bg-blood hover:text-void transition-colors">
-                    PLAY TRACK //
-                </button>
             </div>
             
-            
+            <!-- Synchronized Scrolling Lyrics -->
             <div class="mt-8 border-t border-gray-800 pt-8 relative z-10">
                 <div class="text-xs text-ash tracking-widest uppercase mb-4 text-left border-l-2 border-blood pl-2">Vocal Output: The World is Ugly</div>
                 <div class="lyrics-container font-cinzel italic">
-                    <div class="lyrics-scroll" id="lyricsBox">
-                       
-                    </div>
+                    <div class="lyrics-scroll" id="lyricsBox"></div>
                 </div>
             </div>
         </div>
         
-        
+        <!-- Playlist -->
         <div class="mt-12 text-left tech-border p-6 relative z-10">
             <h3 class="font-cinzel text-xl text-white mb-4 border-l-2 border-blood pl-2 uppercase">Other Frequencies // Playlist</h3>
             <ul class="text-xs text-ash space-y-4 font-mono tracking-wider">
@@ -128,75 +115,67 @@
                     <span>> Shadows - Pastel Ghost</span> 
                     <span class="text-[0.6rem] border border-gray-700 px-2 py-1 group-hover:border-blood">[ENCRYPTED]</span>
                 </li>
-                
             </ul>
         </div>
     </main>
 
     <script>
         const audio = document.getElementById('songAudio');
-        const playBtn = document.getElementById('playBtn');
         const playerContainer = document.getElementById('audioPlayer');
-        const progressBar = document.getElementById('progressBar');
-        const currentTimeDisplay = document.getElementById('currentTime');
-        const durationTimeDisplay = document.getElementById('durationTime');
         const lyricsBox = document.getElementById('lyricsBox');
 
-       
-            const lyricsData = [
-    { time: 46.51, text: "These are the eyes and the lies of the taken" },
-    { time: 51.69, text: "These are their hearts, but their hearts don't beat like ours" },
-    { time: 58.34, text: "They burn 'cause they are all afraid" },
-    { time: 63.51, text: "For every one of us" },
-    { time: 68.27, text: "There's an army of them" },
-    { time: 73.36, text: "But you'll never fight alone" },
-    { time: 78.30, text: "'Cause I wanted you to know" },
-    { time: 83.29, text: "That the world is ugly" },
-    { time: 88.47, text: "But you're beautiful to me" },
-    { time: 93.13, text: "Well, are you thinkin' of me now?" },
-    { time: 100.00, text: "(Now)" },
-    { time: 101.27, text: "These are the nights, and the lights that we fade in" },
-    { time: 105.83, text: "These are the words, but the words aren't comin' out" },
-    { time: 113.39, text: "They burn 'cause they are hard to say" },
-    { time: 118.46, text: "For every failing sun" },
-    { time: 123.44, text: "There's a morning after" },
-    { time: 128.34, text: "Though I'm empty when you go" },
-    { time: 132.89, text: "I just wanted you to know" },
-    { time: 138.36, text: "That the world is ugly" },
-    { time: 142.59, text: "But you're beautiful to me" },
-    { time: 148.30, text: "Are you thinkin' of me" },
-    { time: 153.39, text: "Like I'm thinkin' of you?" },
-    { time: 158.11, text: "I would say I'm sorry, though" },
-    { time: 163.03, text: "Though I really need to go" },
-    { time: 168.06, text: "I just wanted you to know" },
-    { time: 173.57, text: "I wanted you to know" },
-    { time: 178.34, text: "I wanted you to know" },
-    { time: 182.62, text: "I'm thinkin' of you" },
-    { time: 186.63, text: "Every night, every day" },
-    { time: 191.61, text: "These are the lies and the eyes of the taken" },
-    { time: 195.80, text: "These are their hearts, but their hearts don't beat like ours" },
-    { time: 203.18, text: "They burn 'cause they are all afraid" },
-    { time: 208.37, text: "But mine beats twice as hard" },
-    { time: 212.07, text: "'Cause the world is ugly" },
-    { time: 217.43, text: "But you're beautiful to me" },
-    { time: 223.23, text: "Are you thinkin' of me" },
-    { time: 228.19, text: "Like I'm thinkin' of you?" },
-    { time: 233.33, text: "I would say I'm sorry, though" },
-    { time: 238.33, text: "Though I really need to go" },
-    { time: 242.96, text: "And I just wanted you to know" },
-    { time: 248.14, text: "That the world is ugly (I just wanted you to know)" },
-    { time: 252.83, text: "But you're beautiful to me (I just wanted you to know)" },
-    { time: 256.78, text: "Are you thinkin' of me?" },
-    { time: 261.50, text: "Stop your cryin', helpless feelin'" },
-    { time: 265.77, text: "Dry your eyes and start believin'" },
-    { time: 270.83, text: "There's one thing they'll never take from you" },
-    { time: 280.42, text: "(One day, like this, we'll never be the same)" },
-    { time: 283.89, text: "(Never, forever, like ghosts in the snow)" },
-    { time: 286.90, text: "(Like ghosts in the sun)" },
-];
-           
+        const lyricsData = [
+            { time: 46.51, text: "These are the eyes and the lies of the taken" },
+            { time: 51.69, text: "These are their hearts, but their hearts don't beat like ours" },
+            { time: 58.34, text: "They burn 'cause they are all afraid" },
+            { time: 63.51, text: "For every one of us" },
+            { time: 68.27, text: "There's an army of them" },
+            { time: 73.36, text: "But you'll never fight alone" },
+            { time: 78.30, text: "'Cause I wanted you to know" },
+            { time: 83.29, text: "That the world is ugly" },
+            { time: 88.47, text: "But you're beautiful to me" },
+            { time: 93.13, text: "Well, are you thinkin' of me now?" },
+            { time: 100.00, text: "(Now)" },
+            { time: 101.27, text: "These are the nights, and the lights that we fade in" },
+            { time: 105.83, text: "These are the words, but the words aren't comin' out" },
+            { time: 113.39, text: "They burn 'cause they are hard to say" },
+            { time: 118.46, text: "For every failing sun" },
+            { time: 123.44, text: "There's a morning after" },
+            { time: 128.34, text: "Though I'm empty when you go" },
+            { time: 132.89, text: "I just wanted you to know" },
+            { time: 138.36, text: "That the world is ugly" },
+            { time: 142.59, text: "But you're beautiful to me" },
+            { time: 148.30, text: "Are you thinkin' of me" },
+            { time: 153.39, text: "Like I'm thinkin' of you?" },
+            { time: 158.11, text: "I would say I'm sorry, though" },
+            { time: 163.03, text: "Though I really need to go" },
+            { time: 168.06, text: "I just wanted you to know" },
+            { time: 173.57, text: "I wanted you to know" },
+            { time: 178.34, text: "I wanted you to know" },
+            { time: 182.62, text: "I'm thinkin' of you" },
+            { time: 186.63, text: "Every night, every day" },
+            { time: 191.61, text: "These are the lies and the eyes of the taken" },
+            { time: 195.80, text: "These are their hearts, but their hearts don't beat like ours" },
+            { time: 203.18, text: "They burn 'cause they are all afraid" },
+            { time: 208.37, text: "But mine beats twice as hard" },
+            { time: 212.07, text: "'Cause the world is ugly" },
+            { time: 217.43, text: "But you're beautiful to me" },
+            { time: 223.23, text: "Are you thinkin' of me" },
+            { time: 228.19, text: "Like I'm thinkin' of you?" },
+            { time: 233.33, text: "I would say I'm sorry, though" },
+            { time: 238.33, text: "Though I really need to go" },
+            { time: 242.96, text: "And I just wanted you to know" },
+            { time: 248.14, text: "That the world is ugly (I just wanted you to know)" },
+            { time: 252.83, text: "But you're beautiful to me (I just wanted you to know)" },
+            { time: 256.78, text: "Are you thinkin' of me?" },
+            { time: 261.50, text: "Stop your cryin', helpless feelin'" },
+            { time: 265.77, text: "Dry your eyes and start believin'" },
+            { time: 270.83, text: "There's one thing they'll never take from you" },
+            { time: 280.42, text: "(One day, like this, we'll never be the same)" },
+            { time: 283.89, text: "(Never, forever, like ghosts in the snow)" },
+            { time: 286.90, text: "(Like ghosts in the sun)" },
+        ];
 
-        
         lyricsData.forEach((line, index) => {
             const div = document.createElement('div');
             div.className = 'lyric-line';
@@ -205,30 +184,17 @@
             lyricsBox.appendChild(div);
         });
 
-        
-        playBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playBtn.innerText = "PAUSE TRACK //";
-                playerContainer.classList.add('playing');
-            } else {
-                audio.pause();
-                playBtn.innerText = "PLAY TRACK //";
-                playerContainer.classList.remove('playing');
-            }
+        // Automatically spin the vinyl when the user presses play on the native video player controls
+        audio.addEventListener('play', () => {
+            playerContainer.classList.add('playing');
         });
 
-        
-        audio.addEventListener('loadedmetadata', () => {
-            progressBar.max = audio.duration;
-            durationTimeDisplay.innerText = formatTime(audio.duration);
+        audio.addEventListener('pause', () => {
+            playerContainer.classList.remove('playing');
         });
 
-        
+        // Sync lyrics as the video plays
         audio.addEventListener('timeupdate', () => {
-            progressBar.value = audio.currentTime;
-            currentTimeDisplay.innerText = formatTime(audio.currentTime);
-
             let activeIndex = -1;
             for (let i = 0; i < lyricsData.length; i++) {
                 if (audio.currentTime >= lyricsData[i].time) {
@@ -243,26 +209,11 @@
                 const activeElement = document.getElementById(`line-${activeIndex}`);
                 if(activeElement) activeElement.classList.add('active');
 
-                
                 const lineHeight = activeElement.offsetHeight;
-                
                 const offset = activeElement.offsetTop - (100 - lineHeight/2); 
                 lyricsBox.style.transform = `translateY(-${offset}px)`;
             }
         });
-
-        
-        progressBar.addEventListener('input', () => {
-            audio.currentTime = progressBar.value;
-        });
-
-        
-        function formatTime(seconds) {
-            if(isNaN(seconds)) return "0:00";
-            const min = Math.floor(seconds / 60);
-            const sec = Math.floor(seconds % 60);
-            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
-        }
     </script>
 </body>
 </html>
