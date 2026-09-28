@@ -89,7 +89,7 @@
             cursor: crosshair;
         }
 
-        /* TV/Film Noise Overlay */
+        
         .noise-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -99,7 +99,7 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /* Tech/HUD borders */
+    
         .tech-border {
             position: relative;
             border: 1px solid #333;
@@ -116,7 +116,7 @@
             bottom: -1px; right: -1px; border-bottom: 2px solid #c80000; border-right: 2px solid #c80000;
         }
 
-        /* Image treatment to make it look gritty */
+       
         .grunge-img {
             filter: contrast(1.1) grayscale(0.2);
             transition: all 0.4s ease;
@@ -131,7 +131,7 @@
         ::-webkit-scrollbar-track { background: #000; }
         ::-webkit-scrollbar-thumb { background: #c80000; }
 
-        /* Glitch text effect for hover */
+       
         .hover-glitch:hover {
             animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
             color: #fff;
@@ -149,18 +149,18 @@
 </head>
 <body class="font-mono antialiased">
 
-    <!-- Noise Texture Overlay -->
+
     <div class="noise-overlay"></div>
 
     <header class="relative min-h-screen flex flex-col justify-center px-4 sm:px-8 md:px-16 pt-20 overflow-hidden">
         
-        <!-- Background decorative elements -->
+
         <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
             <div class="absolute top-10 right-10 w-64 h-64 bg-blood/20 rounded-full blur-[100px]"></div>
             <div class="absolute bottom-10 left-10 w-96 h-96 bg-blood/10 rounded-full blur-[120px]"></div>
         </div>
 
-        <!-- Top Nav / Meta Info -->
+
         <div class="absolute top-6 left-6 right-6 flex justify-between items-start z-20 text-xs text-ash tracking-widest uppercase font-mono">
             <div>
                 <p class="text-blood font-bold mb-1">SYS.ARCHIVE // 01</p>
@@ -178,7 +178,6 @@
             </div>
         </div>
 
-        <!-- Main Title -->
         <div class="relative z-10 mt-20 md:mt-0 flex flex-col items-center justify-center text-center">
             <p class="text-blood tracking-[0.3em] text-[0.65rem] md:text-xs mb-4 font-bold uppercase w-full text-left md:text-center md:pl-0 pl-2">Is it real or just in my head?</p>
             
@@ -190,8 +189,7 @@
                     ARCHIVE
                 </h1>
             </div>
-            
-            <!-- Red Gun Accent -->
+ 
             <svg class="absolute top-1/2 right-4 md:right-[5%] w-20 h-20 md:w-32 md:h-32 text-blood transform -translate-y-1/2 -rotate-12 pointer-events-none mix-blend-screen opacity-80" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19,6H8.5L7.2,4.71L5.79,6.12L7.67,8H3.5C2.67,8 2,8.67 2,9.5V13.5C2,14.33 2.67,15 3.5,15H5V21H10V15H11.5L12.5,18H14.5L13.79,15.65C14.07,15.22 14.25,14.73 14.25,14.19V11.24L20,9.75V11H22V8H19V6Z"/>
             </svg>
@@ -206,24 +204,24 @@
 
     <main class="relative z-10 px-4 sm:px-8 md:px-16 pb-24 max-w-7xl mx-auto">
         
-        <!-- Top Section: Bio & Profile -->
+
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24" id="about">
             
-            <!-- Left Column: Profile & HUD -->
+
             <div class="md:col-span-5 space-y-8">
-                <!-- Profile Image Box -->
+
                 <div class="tech-border p-2 group tech-card">
                     <div class="relative w-full aspect-[5/4] bg-void overflow-hidden">
                         <img src="https://github.com/user-attachments/assets/34e09b2d-268d-4f97-9c04-920960b4058a" alt="Nana Profile" class="w-full h-full object-cover object-center grunge-img">
                         
-                        <!-- Decorative text over image -->
+
                         <div class="absolute bottom-4 right-4 border border-white/50 text-white rounded-sm px-4 py-2 text-[0.65rem] backdrop-blur-md bg-black/60 font-bold tracking-widest uppercase">
                             TARGET: NANA
                         </div>
                     </div>
                 </div>
 
-                <!-- HUD: Core Skills -->
+ 
                 <div class="tech-border p-6 text-sm">
                     <div class="flex justify-between items-center mb-6 pb-2 border-b border-blood/30">
                         <h3 class="text-blood font-bold tracking-widest">SOFT SKILLS</h3>
@@ -250,7 +248,7 @@
                     </div>
                 </div>
 
-                <!-- Arsenal Section (Moved to Left Column) -->
+    
                 <section class="pt-4">
                     <h2 class="font-cinzel text-2xl text-white mb-6 border-l-4 border-white pl-4 uppercase">Arsenal <span class="text-blood text-[0.65rem] font-mono tracking-widest block mt-1">Hard Skills & Tools</span></h2>
                     
@@ -301,7 +299,7 @@
                 </section>
             </div>
 
-            <!-- Right Column: Bio & CV -->
+   
             <div class="md:col-span-7 space-y-12 md:pl-8 flex flex-col justify-start pt-4">
                 
                 <section>
@@ -313,20 +311,20 @@
                         I have loved design and drawing since childhood, holding a deep interest in both graphic design and digital illustration. I enjoy exploring various design styles and studying the meaning and philosophy behind every piece of design and art. Look around, or don't. I don't really mind.
                     </p>
                     
-                    <!-- Contact Info Grid -->
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs tracking-widest">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs tracking-widest mt-6 relative z-20">
-    <!-- Tombol Email -->
+ 
     <a href="mailto:najlaqailanura72@gmail.com" class="tech-border p-4 hover:border-blood hover:bg-blood/10 transition-all cursor-pointer block group">
         <span class="text-blood border-b border-blood pb-1 block mb-2 font-bold group-hover:text-white">EMAIL</span>
     </a>
 
-    <!-- Tombol Instagram -->
+
     <a href="https://instagram.com/rsmerry_" target="_blank" class="tech-border p-4 hover:border-blood hover:bg-blood/10 transition-all cursor-pointer block group">
         <span class="text-blood border-b border-blood pb-1 block mb-2 font-bold group-hover:text-white">IG</span>
     </a>
 
-    <!-- Tombol Discord (Auto-Copy) -->
+
     <button onclick="navigator.clipboard.writeText('VIEENAVI'); alert('Discord Username (VIEENAVI) copied to clipboard!');" class="tech-border p-4 hover:border-blood hover:bg-blood/10 transition-all cursor-pointer block group text-left w-full font-mono">
         <span class="text-blood border-b border-blood pb-1 block mb-2 font-bold group-hover:text-white">DISCORD</span>
     </button>
@@ -337,7 +335,7 @@
                     <h2 class="font-cinzel text-2xl text-white mb-6 border-l-4 border-white pl-4 uppercase">Experience & Education</h2>
                     
                     <div class="space-y-6">
-                        <!-- Experience / Academic Projects -->
+
                         <div class="tech-border p-5 border-l-2 border-l-blood">
                             <div class="flex justify-between items-start mb-2">
                                 <h4 class="text-blood font-bold tracking-widest uppercase">Academic & Creative Projects</h4>
@@ -349,7 +347,7 @@
                             </p>
                         </div>
 
-                        <!-- Education -->
+
                         <div class="tech-border p-5">
                             <div class="flex justify-between items-start mb-2">
                                 <h4 class="text-white font-bold tracking-widest uppercase">Visual Communication Design</h4>
@@ -363,10 +361,10 @@
             </div>
         </div>
 
-  <!-- BGM / Audio Player (Video Hack) dengan Animasi Piringan Hitam -->
+
 <div class="tech-border p-4 mt-6 flex flex-col sm:flex-row items-center gap-6 group">
     
-    <!-- Animasi Piringan Hitam (Berputar) -->
+ 
     <div class="relative w-20 h-20 shrink-0 flex items-center justify-center rounded-full bg-[#0a0a0a] border border-gray-700 animate-[spin_4s_linear_infinite] shadow-[0_0_15px_rgba(200,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(200,0,0,0.6)] transition-all duration-500">
         <div class="absolute inset-1 rounded-full border border-gray-800 bg-black"></div>
         <div class="absolute inset-3 rounded-full border border-gray-700"></div>
@@ -374,14 +372,14 @@
         <div class="absolute w-2 h-2 bg-gray-300 rounded-full z-20"></div>
     </div>
 
-    <!-- Pemutar Video (Disamarkan jadi Audio Player) -->
+
     <div class="flex-grow w-full">
         <div class="flex items-center justify-between mb-2 border-b border-blood/30 pb-2">
             <h3 class="text-blood font-bold tracking-widest text-xs uppercase">SYS.AUDIO // NOW PLAYING</h3>
             <svg class="w-4 h-4 text-blood animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
         </div>
         
-        <!-- Tag Video yang ukurannya dipendekkan (h-12) -->
+
         <video controls loop class="w-full h-14 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all object-cover rounded-none bg-transparent">
             <source src="Lagu.mp4" type="video/mp4">
         </video>
@@ -390,14 +388,14 @@
     </div>
 </div>
 
-        <!-- Works / Archive Section -->
+
         <section id="archive" class="pt-12">
             <div class="flex items-end justify-between mb-12 border-b border-gray-800 pb-4">
                 <h2 class="font-cinzel text-4xl md:text-5xl text-white">ARCHIVE</h2>
                 <span class="text-[0.7rem] text-blood tracking-widest font-bold">/// RAW VISUALS</span>
             </div>
             
-            <!-- Grid of Images ONLY -->
+
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 
                 <div class="tech-border p-2 tech-card group cursor-crosshair">
@@ -460,7 +458,7 @@
 
     <footer class="border-t border-gray-900 mt-12 py-12 relative overflow-hidden bg-[#020202]">
         
-        <!-- Abstract background tape/film strip -->
+
         <div class="absolute top-0 left-0 w-full h-8 bg-blood/10 border-b border-blood/20 flex items-center overflow-hidden">
             <div class="animate-[marquee_15s_linear_infinite] whitespace-nowrap flex gap-8">
                 <span class="text-[0.6rem] tracking-widest text-blood uppercase flex items-center gap-8">
