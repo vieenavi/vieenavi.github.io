@@ -147,13 +147,13 @@
         </div>
     </main>
 
-    <!-- Script Pemutar Musik & Lirik Berjalan -->
+ 
     <script>
         const audio = document.getElementById('songAudio');
         const playerContainer = document.getElementById('audioPlayer');
         const lyricsBox = document.getElementById('lyricsBox');
 
-        // Data Lirik The World is Ugly
+
         const lyricsData = [
             { time: 46.51, text: "These are the eyes and the lies of the taken" },
             { time: 51.69, text: "These are their hearts, but their hearts don't beat like ours" },
@@ -206,7 +206,7 @@
             { time: 286.90, text: "(Like ghosts in the sun)" }
         ];
 
-        // Masukkan lirik ke dalam box HTML
+  
         lyricsData.forEach((line, index) => {
             const div = document.createElement('div');
             div.className = 'lyric-line';
@@ -215,7 +215,7 @@
             lyricsBox.appendChild(div);
         });
 
-        // Trigger animasi piringan hitam saat video/lagu di-play
+ 
         audio.addEventListener('play', () => {
             playerContainer.classList.add('playing');
         });
@@ -223,10 +223,10 @@
             playerContainer.classList.remove('playing');
         });
 
-        // Logika Sinkronisasi & Auto-Scroll Lirik
+
         audio.addEventListener('timeupdate', () => {
             let activeIndex = -1;
-            // Cari lirik mana yang sedang aktif berdasarkan waktu
+
             for (let i = 0; i < lyricsData.length; i++) {
                 if (audio.currentTime >= lyricsData[i].time) {
                     activeIndex = i;
@@ -238,19 +238,18 @@
             if (activeIndex !== -1) {
                 const activeElement = document.getElementById(`line-${activeIndex}`);
                 
-                // PENTING: Hanya lakukan kalkulasi & perpindahan jika elemennya BARU berganti
+
                 if(activeElement && !activeElement.classList.contains('active')) {
                     
-                    // Hapus tanda aktif dari lirik lama
+              
                     document.querySelectorAll('.lyric-line').forEach(el => el.classList.remove('active'));
-                    // Beri tanda aktif ke lirik baru
+         
                     activeElement.classList.add('active');
 
-                    // Kalkulasi posisi scroll:
-                    // 130 adalah nilai padding-top kontainer (setengah dari tinggi container 260px)
+           
                     const centerOffset = activeElement.offsetTop - 130 + (activeElement.offsetHeight / 2); 
                     
-                    // Dorong kontainer lirik ke atas (berjalan)
+
                     lyricsBox.style.transform = `translateY(-${centerOffset}px)`;
                 }
             }
