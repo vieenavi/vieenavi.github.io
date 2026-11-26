@@ -15,18 +15,3 @@ https://github.com/user-attachments/assets/3e6d4410-aa7f-4802-ae75-b071082fdab9
 <img width="654" height="800" alt="curtain" src="https://github.com/user-attachments/assets/dd9828d1-a573-4803-930b-ee77cea76b61" />
 <img width="360" height="360" alt="drape" src="https://github.com/user-attachments/assets/969b7f6b-c1ff-440e-be09-f967f137b40d" />
 <img width="587" height="923" alt="arch" src="https://github.com/user-attachments/assets/df8af9ad-350d-4c3b-ad6f-d831f0c15b35" />
-<img width="900" height="1028" alt="char-hand" src="https://github.com/user-attachments/assets/9c56ae31-9d82-44f6-a190-9db3a24b9f74" />
-<img width="900" height="1028" alt="char-hair" src="https://github.com/user-attachments/assets/d8ba8400-4a0b-48ee-af43-bf74fe8ed1b1" />
-<img width="900" height="1028" alt="char-glasses" src="https://github.com/user-attachments/assets/8d77cc47-6b0f-49de-8116-27d2eb1d0f78" />
-<img width="900" height="1028" alt="char-lash" src="https://github.com/user-attachments/assets/756c8313-3cd6-4c6f-8045-6e8fde5e5db1" />
-<img width="900" height="1028" alt="char-hl-b" src="https://github.com/user-attachments/assets/8f45523d-cb1b-41d4-b01e-1498c204a160" />
-<img width="900" height="1028" alt="char-hl-a" src="https://github.com/user-attachments/assets/34a6039a-5455-4384-ac8f-b2f3348ddec9" />
-<img width="900" height="1028" alt="char-pupil-b" src="https://github.com/user-attachments/assets/b7a53044-961e-40d6-abbe-8a16705e7e60" />
-<img width="900" height="1028" alt="char-pupil-a" src="https://github.com/user-attachments/assets/1cd9a197-34d3-470a-8559-79aca7b329e1" />
-<img width="900" height="1028" alt="char-cap" src="https://github.com/user-attachments/assets/7d3d8911-821b-41ae-aa9d-af1dbacfc779" />
-<img width="900" height="1028" alt="char-base" src="https://github.com/user-attachments/assets/bab1cc02-d45f-4398-8370-a6e0b50651ff" />
-
-
-
-
-
