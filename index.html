@@ -1,134 +1,292 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NANA | MAIN PAGE</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'blood': '#c80000',
-                        'void': '#0a0a0a',
-                        'ash': '#888888',
-                    },
-                    fontFamily: {
-                        'cinzel': ['"Cinzel"', 'serif'],
-                        'mono': ['"Space Mono"', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nana’s Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--crypt:#0a0406;--wine:#2b0a12;--blood:#8e0e24;--rose:#c4284a;--bone:#e8dcd2;--pew:#9b8f87;--line:#4a3a3e;
+--frame:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 90' fill='none' stroke='%23a99d93'%3E%3Crect x='3' y='3' width='84' height='84' stroke-width='3'/%3E%3Crect x='11' y='11' width='68' height='68' stroke='%238e0e24'/%3E%3Cpath d='M3 22C16 22 22 16 22 3M87 22C74 22 68 16 68 3M3 68C16 68 22 74 22 87M87 68C74 68 68 74 68 87' stroke-width='1.6'/%3E%3Cg fill='%23c4284a' stroke='none'%3E%3Ccircle cx='11' cy='11' r='3'/%3E%3Ccircle cx='79' cy='11' r='3'/%3E%3Ccircle cx='11' cy='79' r='3'/%3E%3Ccircle cx='79' cy='79' r='3'/%3E%3C/g%3E%3C/svg%3E")}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--bone);font:1.08rem/1.7 'IM Fell English',Georgia,serif;cursor:crosshair;overflow-x:hidden;
+background:radial-gradient(ellipse 80% 45% at 50% 0,rgba(142,14,36,.32),transparent),repeating-linear-gradient(45deg,transparent 0 41px,rgba(142,14,36,.08) 41px 42px),repeating-linear-gradient(-45deg,transparent 0 41px,rgba(142,14,36,.08) 41px 42px),var(--crypt)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;background:url(img/stipple.png) right bottom/auto 92vh no-repeat}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a,button{cursor:pointer}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+figure{margin:0}b{font-weight:400}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
+section{position:relative;padding:4.5rem 0;scroll-margin-top:3.5rem}
+h2{font:700 clamp(2.6rem,6.5vw,4rem)/1 'UnifrakturCook',serif;margin:0 0 .4rem}
+.sub{margin:0 0 2rem;color:var(--pew);font-style:italic}
 
-    <style>
-        body { background-color: #050505; color: #e5e5e5; overflow-x: hidden; cursor: crosshair; }
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;
-            z-index: 50; opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-        .tech-border { position: relative; border: 1px solid #333; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(4px); }
-        .tech-border::before, .tech-border::after { content: ''; position: absolute; width: 10px; height: 10px; }
-        .tech-border::before { top: -1px; left: -1px; border-top: 2px solid #c80000; border-left: 2px solid #c80000; }
-        .tech-border::after { bottom: -1px; right: -1px; border-bottom: 2px solid #c80000; border-right: 2px solid #c80000; }
-        
+.nav{position:sticky;top:0;z-index:30;display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem 2rem;padding:.9rem 1rem;background:rgba(10,4,6,.9);backdrop-filter:blur(6px);border-bottom:1px solid var(--blood);font-style:italic;letter-spacing:.12em}
+.nav a{text-decoration:none;color:var(--pew);transition:color .2s}.nav a:hover{color:var(--bone)}
 
-        .char-container { position: relative; width: 350px; height: 350px; margin: 0 auto; }
-        .char-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
-    </style>
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.arch{position:absolute;top:0;left:0;height:min(560px,72vh,78vw);opacity:.88;filter:brightness(1.35) drop-shadow(0 0 14px #000);pointer-events:none}
+.arch.r{left:auto;right:0;scale:-1 1}
+.drape{position:absolute;top:0;right:7%;width:clamp(150px,22vw,300px);pointer-events:none;filter:drop-shadow(0 10px 18px #000)}
+.vert{position:absolute;left:clamp(.5rem,1.6vw,1.4rem);bottom:3rem;writing-mode:vertical-rl;rotate:180deg;margin:0;font-style:italic;letter-spacing:.3em;font-size:.85rem;color:var(--pew)}
+.hin{position:relative;z-index:2;width:100%;max-width:980px;margin:0 auto;padding:7rem clamp(1.4rem,5vw,3rem) 4rem}
+.kick{margin:0 0 .6rem;color:var(--rose);font-style:italic;letter-spacing:.05em}
+h1{margin:0;font:700 clamp(4.4rem,16vw,11.5rem)/.84 'UnifrakturCook',serif;text-shadow:0 0 50px rgba(142,14,36,.55)}
+h1 span{display:block}h1 span+span{color:var(--rose);margin-left:clamp(2rem,10vw,7rem)}
+.def{max-width:34rem;margin:2.4rem 0 0;padding-left:1.1rem;border-left:2px solid var(--blood);color:var(--pew)}
+.def b{color:var(--bone);font-size:1.25rem}.def span{color:var(--rose);font-style:italic}
+.go{display:inline-block;margin-top:2rem;padding-bottom:.15rem;border-bottom:1px solid var(--rose);color:var(--rose);font-style:italic;text-decoration:none}
+
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:3.5rem 4.5rem;align-items:start}
+.duo{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:2.6rem 2rem}
+.frame{position:relative;border:22px solid;border-image:var(--frame) 30/22px round;background:var(--crypt)}
+.photo{flex:1 1 200px;max-width:250px;rotate:-2.2deg}
+.photo img,.art img{display:block;width:100%;object-fit:cover;filter:grayscale(.5) contrast(1.1) sepia(.25);transition:filter .5s}
+.photo img{aspect-ratio:4/5}.art img{aspect-ratio:3/4}
+.photo:hover img,.art:hover img{filter:none}
+.tag,.art figcaption{position:absolute;background:var(--blood);color:var(--bone);font-style:italic;padding:.05rem .85rem;line-height:1.5}
+.tag{right:-26px;bottom:-16px;rotate:3deg}
+
+.live{flex:1 1 260px;max-width:330px;position:relative;margin-top:3.5rem}
+.win{position:relative;aspect-ratio:4/5;border-radius:50% 50% 5px 5px/34% 34% 5px 5px;background:radial-gradient(ellipse at 50% 30%,#5e1022,#25060e 60%,#0b0306);box-shadow:0 0 0 3px var(--crypt),0 0 0 6px #a99d93,0 0 0 8px var(--crypt),0 0 0 9px #6b5f57,0 0 50px rgba(142,14,36,.4)}
+.win::after{content:"";position:absolute;inset:auto 0 0;height:7%;background:var(--crypt);border-top:1px solid var(--blood)}
+.stage{position:absolute;left:50%;bottom:7%;width:122%;aspect-ratio:900/1028;translate:-50% 0;z-index:2;clip-path:inset(-70% -40% 0 -40%)}
+.l{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;user-select:none;-webkit-user-drag:none}
+#head,#eyes{position:absolute;inset:0}
+#head{transform-origin:50% 76%;will-change:transform;filter:drop-shadow(0 0 1px rgba(196,40,74,.6)) drop-shadow(0 10px 14px rgba(0,0,0,.7))}
+#eyes{will-change:transform}
+#hair{transform-origin:50% 58%;will-change:transform;filter:drop-shadow(0 6px 9px rgba(0,0,0,.6))}
+#hand{transform-origin:80% 100%;will-change:transform;filter:drop-shadow(0 12px 14px rgba(0,0,0,.75))}
+.live figcaption{margin-top:1.3rem;text-align:center;font:700 1.55rem 'UnifrakturCook',serif;color:var(--rose)}
+.claws{position:absolute;left:-26px;bottom:44px;width:62px;rotate:-14deg;z-index:3;pointer-events:none;filter:drop-shadow(0 4px 6px #000)}
+
+.player{display:flex;align-items:center;gap:1.4rem;margin-top:3.2rem;padding:1rem 1.2rem;border:1px solid var(--line);background:rgba(43,10,18,.45)}
+.vinyl{flex:none;width:76px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:radial-gradient(circle,#000 0 36%,#1a1214 37% 41%,#050304 42% 60%,#1d1517 61% 63%,#050304 64%)}
+.vinyl img{width:34%;aspect-ratio:1;border-radius:50%;object-fit:cover;opacity:.85}
+.on .vinyl{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.player div:last-child{flex:1;min-width:0}.np{margin:0;color:var(--rose);font-style:italic}
+video{display:block;width:100%;height:3.4rem;object-fit:cover;filter:grayscale(1);opacity:.85;transition:.3s}video:hover{filter:none;opacity:1}
+
+.txt h3{margin:0 0 1rem;font-size:1.6rem;font-weight:400}.txt h3 small{color:var(--pew);font-size:1rem;font-style:italic}
+.txt p{max-width:62ch;margin:0 0 1.1rem}.txt p+p{color:var(--pew)}
+.drop::first-letter{float:left;padding:.4rem .55rem 0 0;font:700 4.4rem/.78 'UnifrakturCook',serif;color:var(--rose)}
+.links{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.links a,.links button{font:italic 1.05rem 'IM Fell English',serif;color:var(--bone);text-decoration:none;background:none;border:1px solid var(--pew);padding:.4rem 1.2rem;transition:.2s}
+.links a:hover,.links button:hover{background:var(--blood);border-color:var(--rose)}
+.sk{display:grid;gap:.9rem;margin-top:2.4rem}
+.sk h4{margin:0;font:700 1.6rem 'UnifrakturCook',serif}
+.sk div{display:grid;grid-template-columns:9rem 1fr;align-items:center;gap:1rem;font-style:italic}
+.sk i{display:block;height:3px;background:#2a1a1e}.sk b{display:block;height:100%;background:var(--pew)}
+.sk .hot{color:var(--rose)}.sk .hot b{background:var(--rose);box-shadow:0 0 8px var(--blood)}
+
+.sch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem 4rem;align-items:start}
+.tl{list-style:none;margin:0;padding:0 0 0 2.2rem;border-left:1px solid var(--blood);display:grid;gap:2.2rem}
+.tl li{position:relative}.tl li::before{content:"";position:absolute;left:-2.55rem;top:.7rem;width:.7rem;height:.7rem;background:var(--rose);rotate:45deg}
+.tl time{display:block;color:var(--rose);font-style:italic}
+.tl b{display:block;font-size:1.5rem;line-height:1.25}.tl span{color:var(--pew);font-style:italic}
+.note{padding:1.6rem 1.8rem;border:1px solid var(--line);border-left:3px solid var(--rose);background:rgba(43,10,18,.5)}
+.note h3{margin:0;font:700 1.8rem/1.2 'UnifrakturCook',serif}
+.note .now{margin:.2rem 0 .8rem;color:var(--rose);font-style:italic}.note p{margin:0;color:var(--pew)}
+
+.tiles{display:flex;flex-wrap:wrap;gap:.9rem}
+.tiles div{width:6.6rem;aspect-ratio:1;display:grid;place-content:center;text-align:center;border:1px solid var(--line);background:rgba(43,10,18,.5);box-shadow:inset 0 0 0 4px var(--crypt),inset 0 0 0 5px rgba(142,14,36,.55);transition:background .2s}
+.tiles div:hover{background:rgba(142,14,36,.3)}
+.tiles b{font:700 2.1rem/1.2 'UnifrakturCook',serif;color:var(--rose)}.tiles span{font-size:.85rem;color:var(--pew)}
+.kv{display:grid;grid-template-columns:9.5rem 1fr;gap:.6rem 1.2rem;margin:2.4rem 0 0}
+.kv dt{color:var(--rose);font-style:italic}.kv dd{margin:0}
+
+.curtain{position:absolute;top:-1rem;right:0;width:clamp(120px,18vw,240px);pointer-events:none;filter:drop-shadow(0 10px 16px #000)}
+.gal{position:relative;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:3.4rem 2.4rem;padding-top:1rem}
+.art:nth-child(3n+2){margin-top:2.4rem}.art:nth-child(odd){rotate:-1.1deg}.art:nth-child(even){rotate:1.3deg}
+.art figcaption{left:50%;bottom:-24px;translate:-50% 0}
+
+.band{overflow:hidden;border-block:1px solid var(--blood);background:rgba(142,14,36,.14);padding:.4rem 0}
+.mq{display:flex;width:max-content;animation:mq 32s linear infinite}
+.mq span{padding-right:3.2rem;white-space:nowrap;font-style:italic;color:var(--rose)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:2rem;padding-top:3.5rem;padding-bottom:3rem}
+.adv{width:9.5rem;padding:4px;border:2px solid var(--bone);background:#000;text-align:center;rotate:-3deg;transition:rotate .3s}.adv:hover{rotate:0deg}
+.adv div{border:1px solid var(--bone);padding:.3rem .2rem;line-height:1.2;font-style:italic;font-size:.9rem}
+.adv b{display:block;font:700 1.5rem/1.1 'UnifrakturCook',serif}
+.brand{margin:0;font:700 2rem/1 'UnifrakturCook',serif;color:var(--rose)}
+.foot .r{text-align:right}.foot p{margin:.2rem 0}.cp{color:var(--pew);font-size:.9rem;margin-top:1.2rem!important}
+
+@media(max-width:900px){.about,.sch{grid-template-columns:1fr}}
+@media(max-width:640px){.foot .r{text-align:left}.sk div{grid-template-columns:7rem 1fr}.kv{grid-template-columns:1fr;gap:.1rem}.kv dd{margin-bottom:.7rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mq,.on .vinyl{animation:none}}
+</style>
 </head>
-<body class="font-mono antialiased">
-    <div class="noise-overlay"></div>
+<body>
 
+<nav class="nav">
+  <a href="#top">home</a><a href="#about">about me</a><a href="#school">my school</a><a href="#arsenal">arsenal</a><a href="#archive">archive</a><a href="syair-lagu.html">song lyrics</a>
+</nav>
 
-    <nav class="flex justify-center flex-wrap gap-4 sm:gap-8 py-6 border-b border-blood/30 text-xs tracking-widest uppercase font-mono z-40 relative bg-void/80 backdrop-blur-sm">
-        <a href="index.html" class="text-blood font-bold border-b border-blood pb-1">Home Page</a>
-        <a href="tentang-saya.html" class="hover:text-white transition-colors">About Me</a>
-        <a href="sekolahku.html" class="hover:text-white transition-colors">My School</a>
-        <a href="syair-lagu.html" class="hover:text-white transition-colors">Song Lyrics</a>
-    </nav>
+<header id="top" class="hero">
+  <img class="arch" src="img/arch.png" alt="">
+  <img class="arch r" src="img/arch.png" alt="">
+  <img class="drape" src="img/drape.png" alt="">
+  <p class="vert">Nana’s archive, MMXXVI</p>
+  <div class="hin">
+    <p class="kick">Is it real or just in my head?</p>
+    <h1><span>Nana’s</span><span>Archive</span></h1>
+    <p class="def"><b>nana</b> <i>[n.]</i> <span>I.</span> a graphic designer and illustrator from Tangerang. <span>II.</span> (figurative) someone who draws, reads, and tunes out the background noise.</p>
+    <a class="go" href="#about">scroll down</a>
+  </div>
+</header>
 
-    <main class="relative z-10 px-4 sm:px-8 md:px-16 py-12 max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <h1 class="font-cinzel text-5xl md:text-7xl font-black text-white mix-blend-difference mb-2">NANA'S <span class="text-blood drop-shadow-[0_0_15px_rgba(200,0,0,0.5)]">WEB</span></h1>
-            <p class="text-ash text-xs tracking-[0.3em] uppercase">All eyes on me</p>
-        </div>
+<main class="wrap">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-  
-            <div class="tech-border p-4 flex flex-col items-center justify-center">
-                <span class="text-blood text-[0.6rem] tracking-widest uppercase border-b border-blood/50 pb-1 mb-4 w-full text-left">SYS.ENTITY // MOUSE TRACKING ACTIVE</span>
-                
-                <div class="char-container" id="characterBox">
-                    <img src="https://github.com/user-attachments/assets/2f314dbc-adbd-471e-9a50-a2df62fbc42d" class="char-layer z-10" alt="Base">
-                    <img src="https://github.com/user-attachments/assets/56a296e5-dbc2-4d85-b3d8-debf39b5c0f5" class="char-layer eye-pupil z-20" alt="Pupil 1">
-                    <img src="https://github.com/user-attachments/assets/1c00630c-7d8f-45eb-8aab-e789a9098f9d" class="char-layer eye-pupil z-20" alt="Pupil 2">
-                    <img src="https://github.com/user-attachments/assets/6e0e1007-a670-41e9-bfc3-a81d93d4ac1c" class="char-layer z-30" alt="BULMAT">
-                    <img src="https://github.com/user-attachments/assets/985f13aa-d31f-4bd1-806c-a17bf2f0b51e" class="char-layer z-40" alt="Highlight 1">
-                    <img src="https://github.com/user-attachments/assets/e42c82b1-4583-4620-bc31-3743f38832f0" class="char-layer z-40" alt="Highlight 2">
-                    <img src="https://github.com/user-attachments/assets/2da8723a-db5b-47eb-bb6f-28c910517396" class="char-layer z-50" alt="Glasses">
-                    <img src="https://github.com/user-attachments/assets/bcd058b5-7f7a-42af-94aa-22edec1dddc0" class="char-layer z-50" alt="Hair">
-                    <img src="https://github.com/user-attachments/assets/3fc14341-352a-4af1-aa86-842ac1fd60d5" class="char-layer z-[60]" alt="Hand">
-                </div>
+<section id="about" class="about">
+  <div>
+    <div class="duo">
+      <figure class="frame photo">
+        <img src="https://github.com/user-attachments/assets/34e09b2d-268d-4f97-9c04-920960b4058a" alt="Nana">
+        <figcaption class="tag">target: nana</figcaption>
+      </figure>
+      <figure class="live">
+        <div class="win" role="img" aria-label="Illustration of Nana whose eyes follow your cursor">
+          <div class="stage" id="stage">
+            <div id="head">
+              <img class="l" src="img/char-base.png" alt="">
+              <div id="eyes">
+                <img class="l" src="img/char-pupil-a.png" alt=""><img class="l" src="img/char-pupil-b.png" alt="">
+                <img class="l" src="img/char-hl-a.png" alt=""><img class="l" src="img/char-hl-b.png" alt="">
+              </div>
+              <img class="l" src="img/char-cap.png" alt=""><img class="l" src="img/char-lash.png" alt=""><img class="l" src="img/char-glasses.png" alt="">
             </div>
-
-   
-            <div class="space-y-6">
-                <h2 class="font-cinzel text-2xl text-blood border-l-4 border-blood pl-4 uppercase">Arsip Log (Berita)</h2>
-                
-                <div class="tech-border p-6 hover:bg-white/5 transition-colors group">
-                    <div class="flex justify-between items-start mb-2 border-b border-gray-800 pb-2">
-                        <h3 class="text-white font-bold group-hover:text-blood transition-colors">Distorsi Realita: 1 USD = 1 IDR</h3>
-                        <span class="text-[0.6rem] text-ash tracking-widest">24 SEP 2026</span>
-                    </div>
-                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">Sebuah fenomena anomali yang hanya terjadi di alam bawah sadar. Apakah ini sekadar 'mimpi basah' para ekonom atau glitch di matriks keuangan global?</p>
-                    <a href="berita/berita-1.html" class="text-[0.7rem] text-blood border border-blood px-3 py-1 hover:bg-blood hover:text-black transition-colors uppercase font-bold tracking-wider inline-block">Akses Data //</a>
-                </div>
-
-                <div class="tech-border p-6 hover:bg-white/5 transition-colors group">
-                    <div class="flex justify-between items-start mb-2 border-b border-gray-800 pb-2">
-                        <h3 class="text-white font-bold group-hover:text-blood transition-colors">Sekuritisasi Identitas & HAM</h3>
-                        <span class="text-[0.6rem] text-ash tracking-widest">08 AGS 2026</span>
-                    </div>
-                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">Polemik Perpres 111/2025 yang memasukkan LGBT sebagai ancaman non-militer. Perlindungan kedaulatan atau bentuk opresi struktural terhadap HAM sipil?</p>
-                    <a href="berita/berita-2.html" class="text-[0.7rem] text-blood border border-blood px-3 py-1 hover:bg-blood hover:text-black transition-colors uppercase font-bold tracking-wider inline-block">Akses Data //</a>
-                </div>
-            </div>
+            <img class="l" id="hair" src="img/char-hair.png" alt="">
+            <img class="l" id="hand" src="img/char-hand.png" alt="">
+          </div>
         </div>
-    </main>
+        <img class="claws" src="img/claws.png" alt="">
+        <figcaption>all eyes on me</figcaption>
+      </figure>
+    </div>
 
-    <script>
-        const pupils = document.querySelectorAll('.eye-pupil');
-        const charBox = document.getElementById('characterBox');
+    <div class="player" id="pl">
+      <div class="vinyl"><img src="https://github.com/user-attachments/assets/a3dd1b96-5847-429d-8e7f-079e2f118609" alt=""></div>
+      <div><p class="np">now playing</p>
+        <video id="song" controls loop><source src="Lagu.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
 
-        document.addEventListener('mousemove', (e) => {
-            const rect = charBox.getBoundingClientRect();
-            const centerX = rect.left + (rect.width / 2);
-            const centerY = rect.top + (rect.height / 2);
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-            const deltaX = mouseX - centerX;
-            const deltaY = mouseY - centerY;
-            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            
-            const maxMove = 5; 
-            let moveX = (deltaX / distance) * Math.min(distance * 0.02, maxMove);
-            let moveY = (deltaY / distance) * Math.min(distance * 0.02, maxMove);
-            
-            if (!isNaN(moveX) && !isNaN(moveY)) {
-                pupils.forEach(pupil => {
-                    pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                });
-            }
-        });
-    </script>
+  <div class="txt">
+    <h2>Who am I?</h2>
+    <h3>Najla Qaila Nur Azkhasa <small>(call me Nana)</small></h3>
+    <p class="drop">Hi! I’m Nana, and this is where my creations live. I am a professional Graphic Designer and Illustrator who is eager for more ways to express myself. I draw, I read, and I tune out the background noise. Welcome to my digital archive, fueled by ethereal synths, dark aesthetics, and medieval literature.</p>
+    <p>I have loved design and drawing since childhood, holding a deep interest in both graphic design and digital illustration. I enjoy exploring various design styles and studying the meaning and philosophy behind every piece of design and art. Look around, or don’t. I don’t really mind.</p>
+    <div class="links">
+      <a href="mailto:najlaqailanura72@gmail.com">Email</a>
+      <a href="https://instagram.com/rsmerry_" target="_blank" rel="noopener">Instagram</a>
+      <button type="button" onclick="cp(this)">Discord</button>
+    </div>
+    <div class="sk">
+      <h4>Soft skills</h4>
+      <div><span>Discipline</span><i><b style="width:95%"></b></i></div>
+      <div class="hot"><span>Imagination</span><i><b style="width:100%"></b></i></div>
+      <div><span>Teamwork</span><i><b style="width:90%"></b></i></div>
+      <div><span>Communication</span><i><b style="width:85%"></b></i></div>
+    </div>
+  </div>
+</section>
+
+<section id="school" class="sch">
+  <div>
+    <h2>My school</h2>
+    <p class="sub">where it all started, newest first</p>
+    <ol class="tl">
+      <li><time>MMXXIV – MMXXVII</time><b>SMK PGRI I Tangerang</b><span>high school, Visual Communication Design</span></li>
+      <li><b>SMPN II Curug</b><span>junior high school</span></li>
+      <li><b>SDN Kampung Bambu III</b><span>elementary school</span></li>
+    </ol>
+  </div>
+  <article class="note">
+    <h3>Academic &amp; Creative Projects</h3>
+    <p class="now">present, Visual Communication Design (DKV)</p>
+    <p>Actively producing digital media assets for academic assignments. Experienced in creating posters, advertisements, logo designs, animations, digital illustrations, and video editing.</p>
+  </article>
+</section>
+
+<section id="arsenal">
+  <h2>Arsenal</h2>
+  <p class="sub">hard skills and tools</p>
+  <div class="tiles">
+    <div><b>Ps</b><span>Photoshop</span></div><div><b>Ai</b><span>Illustrator</span></div>
+    <div><b>Csp</b><span>Clip Studio</span></div><div><b>IPX</b><span>Ibis Paint X</span></div>
+    <div><b>Cv</b><span>Canva</span></div><div><b>Cc</b><span>CapCut</span></div>
+    <div><b>Bl</b><span>Blender</span></div><div><b>Cd</b><span>CorelDRAW</span></div>
+  </div>
+  <dl class="kv">
+    <dt>Design</dt><dd>Adobe Photoshop, Adobe Illustrator, Canva, Ibis Paint X, Clip Studio Paint, CorelDRAW, &amp; Blender</dd>
+    <dt>Video editing</dt><dd>CapCut</dd>
+    <dt>Visual arts</dt><dd>Digital Illustration, Layouting, Poster Design, and Typography</dd>
+    <dt>Media</dt><dd>Multimedia Production</dd>
+    <dt>Languages</dt><dd>Indonesian (Native), English, Japanese (Basic)</dd>
+  </dl>
+</section>
+
+<section id="archive">
+  <img class="curtain" src="img/curtain.png" alt="">
+  <h2>Archive</h2>
+  <p class="sub">raw visuals</p>
+  <div class="gal" id="gal"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="band"><div class="mq" id="mq"><span>rec // no signal</span><span>raw footage</span><span>creative control</span><span>system error</span></div></div>
+  <div class="wrap foot">
+    <div class="adv"><div>Creative<b>Advisory</b>dark content</div></div>
+    <div class="r">
+      <p class="brand">Nana.art</p>
+      <p>Graphic Designer &amp; Illustrator</p>
+      <p class="cp">© MMXXVI Najla Qaila. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $=i=>document.getElementById(i);
+
+/* galeri: ganti id gambar di sini kalau mau nambah / tukar karya */
+const G='https://github.com/user-attachments/assets/',R=['I','II','III','IV','V','VI','VII','VIII','IX'],
+A='3e8522ab-7b19-46cd-ad1b-8e4968b43e08 ed01e7d5-fa5c-42d5-b4a1-a644284a09db 0af2db23-14e3-435d-9f21-be5c05ad9eef 6037a461-a346-4d8e-9dff-5533ce048637 650e5f42-28d5-4e70-bfeb-ea7e4d15460a 1d442e53-a4e9-460c-9e72-45e0263f68f6 3a9bf824-e2a9-4ffa-9564-a5beee0d7962 e4bd4e47-0c7a-4452-b082-318523cc0b3a 71677829-ec31-4506-840a-8bab8b3a8d80'.split(' ');
+$('gal').innerHTML=A.map((id,i)=>`<figure class="frame art"><img loading="lazy" src="${G+id}" alt="Artwork ${R[i]}"${i==3||i==5?' style="object-position:top"':''}><figcaption>${R[i]}</figcaption></figure>`).join('');
+
+$('mq').innerHTML+=$('mq').innerHTML;
+
+function cp(b){navigator.clipboard&&navigator.clipboard.writeText('VIEENAVI');const t=b.textContent;b.textContent='VIEENAVI copied';setTimeout(()=>b.textContent=t,1800)}
+const song=$('song'),pl=$('pl');
+song.onplay=()=>pl.classList.add('on');song.onpause=song.onended=()=>pl.classList.remove('on');
+
+/* karakter 2D: mata ngikutin kursor, kepala / rambut / tangan gerak beda-beda biar ada kedalaman */
+(()=>{
+const st=$('stage'),hd=$('head'),ey=$('eyes'),ha=$('hair'),hn=$('hand'),
+calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let tx=0,ty=0,seen=-1e5,next=0,p=performance.now();
+const c={g:[0,0],h:[0,0],a:[0,0],b:[0,0]};
+const aim=(x,y)=>{const r=st.getBoundingClientRect(),dx=x-(r.left+r.width*.48),dy=y-(r.top+r.height*.33),d=Math.hypot(dx,dy)||1,k=Math.min(d/280,1);tx=dx/d*k;ty=dy/d*k;seen=performance.now()};
+addEventListener('pointermove',e=>aim(e.clientX,e.clientY),{passive:true});
+addEventListener('pointerdown',e=>aim(e.clientX,e.clientY),{passive:true});
+const ease=(v,f,dt)=>{const k=1-Math.pow(1-f,dt);v[0]+=(tx-v[0])*k;v[1]+=(ty-v[1])*k};
+function tick(t){
+  const dt=Math.min((t-p)/16.7,4);p=t;
+  if(!calm&&t-seen>3000&&t>next){tx=(Math.random()*2-1)*.9;ty=(Math.random()-.4)*.8;next=t+1600+Math.random()*2400}
+  ease(c.g,.2,dt);ease(c.h,.07,dt);ease(c.a,.045,dt);ease(c.b,.05,dt);
+  const w=st.offsetWidth,h=st.offsetHeight,s=calm?0:t/1000,br=Math.sin(s*1.4);
+  ey.style.transform=`translate(${c.g[0]*.02*w}px,${c.g[1]*.005*h}px)`;
+  hd.style.transform=`translate(${c.h[0]*.012*w}px,${c.h[1]*.006*h+br*.002*h}px) rotate(${c.h[0]*1.4}deg)`;
+  ha.style.transform=`translate(${c.a[0]*.02*w}px,${c.a[1]*.01*h+br*.003*h}px) rotate(${c.a[0]*-.9}deg)`;
+  hn.style.transform=`translate(${-c.b[0]*.03*w}px,${-c.b[1]*.012*h+Math.sin(s*.9+1)*.006*h}px) rotate(${-c.b[0]*2.4}deg)`;
+  requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+})();
+</script>
 </body>
 </html>
