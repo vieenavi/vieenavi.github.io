@@ -6,5 +6,5 @@
 <img width="3072" height="3072" alt="Tak berjudul356_20260923190021" src="https://github.com/user-attachments/assets/1c00630c-7d8f-45eb-8aab-e789a9098f9d" />
 <img width="3072" height="3072" alt="Tak berjudul356_20260923190016" src="https://github.com/user-attachments/assets/56a296e5-dbc2-4d85-b3d8-debf39b5c0f5" />
 <img width="3072" height="3072" alt="Tak berjudul356_20260923190011" src="https://github.com/user-attachments/assets/2f314dbc-adbd-471e-9a50-a2df62fbc42d" />
-<img width="3072" height="3072" alt="Tak berjudul356_20260924145345" src="https://github.com/user-attachments/assets/6e0e1007-a670-41e9-bfc3-a81d93d4ac1c" />
 <img width="900" height="1028" alt="char-lash" src="https://github.com/user-attachments/assets/756c8313-3cd6-4c6f-8045-6e8fde5e5db1" />
+<img width="900" height="1028" alt="char-cap" src="https://github.com/user-attachments/assets/7d3d8911-821b-41ae-aa9d-af1dbacfc779" />
